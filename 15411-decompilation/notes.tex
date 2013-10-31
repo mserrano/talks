@@ -221,7 +221,7 @@ Note that for any interval $I(h)$, there exists a loop rooted at $h$ if there is
 to $h$ from some node $z \in I(h)$. One way to find such a node is to simply perform DFS
 on the interval. Then, in order to find the nodes in the loop, we define $h$ as being part of
 the loop and then proceed by noting that a node $k$ is in the loop if and only if its immediate
-dominator is in the loop.
+dominator is in the loop and $h$ is reachable from $k$.
 
 The algorithm for finding loops in the graph then proceeds as follows.
 Compute the derived graphs of $G$ until you reach the fixed point, and find the loops in each
@@ -313,6 +313,9 @@ vulnerabilities, detecting and possibly collapsing aliases, recovering scoping i
 extracting inlined functions, or dealing with tail call optimizations. Many of these problems (and,
 in fact, many of the things discussed above!) do not have satisfactory solutions, and remain open
 research problems. For one, CMU's CyLab contains a group actively doing research on these topics.
+They recently (a few days ago!) released a paper containing a description of their solutions to many 
+of these problems. Since they decompile arbitrary native code, rather than caring mostly about
+a specific language, they encounter some very interesting and difficult problems.
 
 Decompilation as a whole is very much an open research topic, and there exist very few reasonable
 decompilers. One of the better-known ones is the Hex-Rays decompiler, and it is sadly entirely
@@ -328,5 +331,6 @@ Conferencia Latinoamericana de Inform\'atica}, 2-6 August 1993, 267-276.
 \item Dullien, Thomas, and Sebastian Porst. ``REIL: A platform-independent intermediate
 representation of disassembled code for static code analysis.'' {\em CanSecWest},  2009.
 \item Lee, JongHyup, Thanassis Avgerinos, and David Brumley. ``TIE: Principled Reverse Engineering of Types in Binary Programs.'' {\em NDSS Symposium}, 2011.
+\item Schwartz, Edward J., JongHyup Lee, Maverick Woo, and David Brumley. ``Native x86 Decompilation using Semantics-Preserving Structural Analysis and Iterative Control-Flow Structuring.'' {\em Usenix}, 2013.
 \end{enumerate}
 \end{document}
