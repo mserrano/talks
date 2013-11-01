@@ -1,0 +1,16 @@
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Best Messaging App NA</a>
+        <ul class="nav navbar-nav">
+          {% if logged_in() %}
+          <li><a href="/messages/">Read</a></li>
+          <li><a href="/send/">Send</a></li>
+          <li><a href="/logout/">Logout</a></li>
+          {% else %}
+          <li><a href="/register/">Registration</a></li>
+          <li><a href="/login/">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+

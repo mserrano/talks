@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Read Messages</title>
+    {% include "bootstrap.html" %}
+  </head>
+  <body>
+    {% include "nav.html" %}
+
+    <div class="container">
+      <ul class="list-group">
+      {% for row in data %}
+        <li class="list-group-item"><a href="/message/{{ row[0] }}">Message {{ row [0] }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
