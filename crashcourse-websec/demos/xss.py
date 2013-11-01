@@ -5,8 +5,7 @@ from uuid import uuid4 as uuid
 import MySQLdb
 import re
 
-app = Flask('website')
-app.config['DEBUG'] = True
+app = Flask('xss')
 secret_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 def logged_in():
