@@ -1,0 +1,13 @@
+<html>
+<body>
+  <table>
+    {% for line in l %}
+    <tr><td> {{ line|safe }} </td></tr>
+    {% endfor %}
+  </table><br />
+  <form action="/xss/" method="POST">
+    <input type="text" name="msg"></input>
+    <input type="submit" name="submit" value="Submit" />
+  </form>
+</body>
+</html>
