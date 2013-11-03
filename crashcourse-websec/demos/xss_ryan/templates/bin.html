@@ -1,0 +1,19 @@
+<!doctype html>
+<head>
+<title>Bin {{name}}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type=text/javascript src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+<script>
+var x = {{data|safe}};
+function load() {
+	for (i in x) {
+		$("#list").append('<li><a href="/post/'+i+'">'+x[i]+'</a></li>')
+	}
+}
+</script>
+</head>
+<body onload="load();">
+	<ol id="list">
+	</ol>
+</body>
+</html>

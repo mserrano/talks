@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+<title>Make a paste</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type=text/javascript src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+<script>
+function post() {
+	$.ajax({
+	  type: 'POST',
+	  url: "/make/"+$("#bin_name").val(),
+	  data: $("#contents").val(),
+	  success: function() {
+	  	document.location.href = '/bin/'+$("#bin_name").val();
+	  },
+	  dataType: "text",
+	  async: false
+	});
+}
+</script>
+</head>
+<body>
+	<input id="bin_name" type="text" value="Bin name">
+	<textarea id="contents" rows="10" cols="50">Your paste here</textarea>
+	<button onclick="post()">Paste!</button>
+</body>
+</html>
