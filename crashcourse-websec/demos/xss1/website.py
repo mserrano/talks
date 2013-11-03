@@ -5,17 +5,17 @@ from flask import request
 from flask import session
 from flask import g
 from flask import redirect,url_for
+from hashlib import sha1
 
 app = Flask('website')
-app.config['DEBUG']=True
-
+app.config['DEBUG'] = True
 @app.route("/headers/")
 def classes():
   if 'admin' in request.headers:
     return render_template("headers_success.html")
   return render_template("headers_fail.html")
 
-@app.route("/cookies/")
+@app.route("/cookies1/")
 def projects():
   if 'admin' in request.cookies and request.cookies['admin'] == '1':
     return render_template("cookies_success.html")
@@ -23,10 +23,18 @@ def projects():
   resp.set_cookie('admin', '0')
   return resp
 
+@app.route("/cookies2/")
+def better_cookies():
+  if 'user' in request.cookies and request.cookies['user'] == sha1('admin').hexdigest():
+    return render_template("cookies_success.html")
+  resp = make_response(render_template("cookies_fail.html"))
+  resp.set_cookie('user', sha1('guest').hexdigest())
+  return resp
+
 @app.route("/login/", methods=['GET', 'POST'])
 def login():
   p = { 'Bob': 'password', 'Eve': 'evil' }
-  s = { 'Bob': 'bobsecretisbestsecret', 'Eve': 'getbobssecret' }
+  s = { 'Bob': 'stolen_data1!one', 'Eve': 'Go get Bob\'s secret' }
   if request.method == 'POST':
     username = request.form['username']
     password = request.form['password']
@@ -44,7 +52,7 @@ def xss():
   if 'username' not in session:
     return redirect(url_for('login'))
   if request.method == 'GET':
-    f = open("messages", "r")
+    f = open("/var/www/app/messages", "r")
     l = []
     for line in f:
       l += [line]
@@ -52,7 +60,7 @@ def xss():
     return render_template("messages.html", l=l)
   else:
     msg = request.form['msg']
-    f = open("messages", "a")
+    f = open("/var/www/app/messages", "a")
     f.write(session['username'] + ': ' + msg + '\n')
     f.close()
     return redirect(url_for('xss'))

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    {% include "bootstrap.html" %}
+  </head>
+  <body>
+    {% include "nav.html" %}
+
+    <div class="container">
+      <div class="row">
+        <div class="panel">
+          <div class="panel-heading"><h3 class="panel-title">Send Message</h3></div>
+          <form action="/send/" method="post">
+            <fieldset>
+              <label>Destination</label>
+              <input type="text" class="form-control" name="dst" /><br />
+              <label>Message</label>
+              <textarea class="form-control" name="msg" rows="8"></textarea><br />
+              <p align="right"><button type="submit" class="btn">Submit</button></p>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
