@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Registered</title>
+    <title>Sending message failed!</title>
     {% include "bootstrap.html" %}
   </head>
   <body>
@@ -10,13 +10,10 @@
     <div class="container">
       <div class="row">
         <div class="panel">
-          <div class="panel-heading"><h3 class="panel-title">Registration complete!</h3> </div>
-          <p>
-            Registration complete! You may now <a href="/login/">log in!</a>
-          </p>
+          <div class="panel-heading"><h3 class="panel-title">Sending message failed!</h3> </div>
+          <p>Sending message failed! {{ msg }}</p>
         </div>
       </div>
     </div>
   </body>
 </html>
-
