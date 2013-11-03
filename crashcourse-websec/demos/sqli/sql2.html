@@ -1,0 +1,23 @@
+<html>
+<body>
+You can find the source that processes this <a href="./sql2.phps">here</a>.
+Your goal is to read the source of the passwords.php file.
+<form action="sql2.php?action=upload" method="post" enctype="multipart/form-data">
+<label for="rating">Rating:</label>
+<select name="rating">
+<option value="0">Low</option>
+<option value="1">Medium</option>
+<option value="2">High</option>
+<option value="3">Critical</option>
+</select>
+
+<label for="title">Title:</label>
+<input type="text" name="title"></input>
+
+<label for="prove">Proof:</label>
+<input type="file" name="prove" id="dispic" /><br />
+<input type="submit" name="submit" value="Submit" />
+</form>
+
+</body>
+</html>
